@@ -1,35 +1,46 @@
-import calculator
+from calculator import somar, subtrair, multiplicar, dividir
 
 def menu():
-    print("Calculadora Python")
+    print("\n" + "="*30)
+    print("🧮  CALCULADORA PYTHON  📱")
+    print("="*30)
     print("Escolha a operação:")
-    print("1. Somar")
-    print("2. Subtrair")
-    print("3. Multiplicar")
-    print("4. Dividir")
-    print("0. Sair")
+    print("1. ➕ Somar")
+    print("2. ➖ Subtrair")
+    print("3. ✖️ Multiplicar")
+    print("4. ➗ Dividir")
+    print("0. 🚪 Sair")
+    print("-"*30)
 
 while True:
     menu()
-    escolha = input("Digite a opção: ")
+    opcao = input("Digite a opção: ").strip()
 
-    if escolha == "0":
-        print("Saindo...")
+    if opcao == "0":
+        print("\nEncerrando a calculadora. Até logo!\n")
         break
 
-    a = float(input("Digite o primeiro número: "))
-    b = float(input("Digite o segundo número: "))
+    if opcao not in ["1", "2", "3", "4"]:
+        print("\n❌ Opção inválida. Tente novamente.")
+        continue
 
-    if escolha == "1":
-        print("Resultado:", calculator.somar(a, b))
-    elif escolha == "2":
-        print("Resultado:", calculator.subtrair(a, b))
-    elif escolha == "3":
-        print("Resultado:", calculator.multiplicar(a, b))
-    elif escolha == "4":
-        try:
-            print("Resultado:", calculator.dividir(a, b))
-        except ValueError as e:
-            print("Erro:", e)
-    else:
-        print("Opção inválida.")
+    try:
+        a = float(input("Digite o primeiro número: "))
+        b = float(input("Digite o segundo número: "))
+    except ValueError:
+        print("\n⚠️ Entrada inválida. Use números válidos.")
+        continue
+
+    if opcao == "1":
+        resultado = somar(a, b)
+    elif opcao == "2":
+        resultado = subtrair(a, b)
+    elif opcao == "3":
+        resultado = multiplicar(a, b)
+    elif opcao == "4":
+        if b == 0:
+            print("\n🚫 Erro: divisão por zero não é permitida.")
+            continue
+        resultado = dividir(a, b)
+
+    print(f"\n✅ Resultado: {resultado}")

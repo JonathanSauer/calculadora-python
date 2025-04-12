@@ -2,8 +2,7 @@ FROM python:3.10-slim
 
 WORKDIR /app
 
-COPY . .
+COPY calculator.py .
+COPY main.py .
 
-RUN pip install pytest
-
-CMD ["python", "calculator.py"]
+CMD ["python", "main.py"]
