@@ -23,3 +23,10 @@ jobs:
 
     - name: Run tests
       run: pytest
+
+    - name: Enviar alerta para o Discord
+      uses: Ilshidur/action-discord@master
+      with:
+        args: "Novo commit realizado no repositório! ✅"
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
