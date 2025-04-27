@@ -1,5 +1,5 @@
 import unittest
-from calculadora import somar, subtrair, multiplicar, dividir
+from calculator import somar, subtrair, multiplicar, dividir
 
 class TestCalculadora(unittest.TestCase):
     def test_somar(self):
