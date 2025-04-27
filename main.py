@@ -1,4 +1,4 @@
-from calculator import somar, subtrair, multiplicar, dividir
+from calculadora import somar, subtrair, multiplicar, dividir
 
 def menu():
     print("\n" + "="*30)
